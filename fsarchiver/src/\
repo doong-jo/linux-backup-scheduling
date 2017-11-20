@@ -1,0 +1,26 @@
+#!/bin/bash
+
+opt1_term=$1
+opt2_day=$2;
+opt3_hour=$3;
+		
+case $opt1_choice in
+	monthly)
+   		echo "monthly backup!";;
+				
+
+	weekly) 
+		echo "weekly backup!";;
+
+	daily) 
+		echo "daily backup!";;
+
+esac
+
+echo -n "Input fsarchiver command : "
+read opt4_command
+
+echo $opt1_term
+echo $opt2_day
+echo $opt3_hour
+$opt4_command
