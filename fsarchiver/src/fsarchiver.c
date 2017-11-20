@@ -39,6 +39,7 @@
 #include "logfile.h"
 #include "error.h"
 #include "queue.h"
+#include "logwriter.h"
 
 char *valid_magic[]={FSA_MAGIC_MAIN, FSA_MAGIC_VOLH, FSA_MAGIC_VOLF, 
     FSA_MAGIC_FSIN, FSA_MAGIC_FSYB, FSA_MAGIC_DATF, FSA_MAGIC_OBJT, 
@@ -454,6 +455,12 @@ int main(int argc, char **argv)
     
     // bulk of the program
     ret=process_cmdline(argc, argv);
+	
+
+	// Add LogWrite
+	LogWrite(argv);	
+
+	//printf("ret : %d\n");	
 
     // cleanup
     queue_destroy(&g_queue);
