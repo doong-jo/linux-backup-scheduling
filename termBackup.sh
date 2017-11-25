@@ -1,11 +1,3 @@
-
-#GPL 2.0
-
-#termBackup decide backup term of fsarchiver.
-
-#By team. jipuragi 
-#github : https://github.com/sdong001/oss_hw4
-
 #!/bin/bash
 
 export LC_TIME=C

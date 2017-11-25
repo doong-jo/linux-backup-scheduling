@@ -13,7 +13,16 @@
  * General Public License for more details.
  *
  * Homepage: http://www.fsarchiver.org
+
+   We modified main function.
+   Add logwrite function.
+   Logwrite make log file about using fsarchiver command history.
+
+   By team. jipuragi 
+   github : https://github.com/sdong001/oss_hw4
+
  */
+
 
 #ifdef HAVE_CONFIG_H
 #  include "config.h"
