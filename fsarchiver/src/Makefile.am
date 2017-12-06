@@ -5,7 +5,7 @@ fsarchiver_SOURCES	= fsarchiver.c oper_save.c oper_restore.c oper_probe.c \
 	thread_comp.c comp_gzip.c comp_bzip2.c comp_lzma.c comp_lzo.c crypto.c \
 	fs_ntfs.c fs_ext2.c fs_reiserfs.c fs_reiser4.c fs_btrfs.c fs_xfs.c fs_jfs.c \
 	fs_vfat.c common.c dico.c strdico.c dichl.c queue.c error.c syncthread.c \
-	datafile.c strlist.c regmulti.c options.c logfile.c filesys.c devinfo.c logwriter.c
+	datafile.c strlist.c regmulti.c options.c logfile.c filesys.c devinfo.c
 
 noinst_HEADERS		= fsarchiver.h oper_save.h oper_restore.h oper_probe.h \
 	thread_archio.h archreader.h archwriter.h writebuf.h archinfo.h \
@@ -14,13 +14,22 @@ noinst_HEADERS		= fsarchiver.h oper_save.h oper_restore.h oper_probe.h \
 	fs_vfat.h common.h dico.h strdico.h dichl.h queue.h error.h syncthread.h \
 	datafile.h strlist.h regmulti.h options.h logfile.h types.h filesys.h devinfo.h logwriter.h 
 
+
+logwriter_SOURCES = logwriter.c
+
+lib_LTLIBRARIES = liblogwriter.la
+liblogwriter_la_SOURCES = $(logwriter_SOURCES)
+
+
 fsarchiver_LDADD	= -lpthread -lrt \
                           $(LZMA_LIBS) \
                           $(EXT2FS_LIBS) \
                           $(COM_ERR_LIBS) \
                           $(E2P_LIBS) \
                           $(BLKID_LIBS) \
-                          $(UUID_LIBS)
+                          $(UUID_LIBS)  \
+			liblogwriter.la
+
 fsarchiver_CFLAGS	= @CFLAGS@ -Wall -std=gnu99 -rdynamic -ggdb \
                           $(LZMA_CFLAGS) \
                           $(EXT2FS_CFLAGS) \

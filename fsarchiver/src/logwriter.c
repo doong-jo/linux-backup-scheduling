@@ -1,15 +1,3 @@
-/*
-
-GPL 2.0
-
-Fsarchiver + termbackup, logwriter 작성자 : 조성동, 정하민
-
-sdong001@gmail.com, wjdgkals74@gmail.com
-
-
-*/
-
-
 #include <stdio.h>
 #include <time.h>
 #include <string.h>

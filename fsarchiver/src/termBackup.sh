@@ -1,7 +1,7 @@
 
 #GPL 2.0
 
-#termBackup decide backup term of fsarchiver.
+#termBackup.
 
 #By team. jipuragi 
 #github : https://github.com/sdong001/oss_hw4
@@ -11,8 +11,8 @@
 export LC_TIME=C
 
 opt1_term=$1
-opt2_day=$2;
-opt3_hour=$3;
+opt2_day=$2
+opt3_hour=$3
 
 if [ "$opt1_term" = "--help" ]
 then
@@ -35,9 +35,9 @@ then
 fi
 
 
-pivotMonth=$(date +%m);
-pivotWeek=$(date +%V);
-pivotDay=$(date +%j);
+pivotMonth=$(date +%m)
+pivotWeek=$(date +%V)
+pivotDay=$(date +%j)
 IsBackup=false
 
 echo -n "Input fsarchiver command : "

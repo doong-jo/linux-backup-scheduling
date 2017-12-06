@@ -1,3 +1,17 @@
+Sejong Univ. OSS Class Term project
+
+Fsarchiver https://github.com/fdupoux/fsarchiver GPL 2.0
+
+Fsarchiver + termbackup, logwriter 작성자 : 조성동, 정하민
+
+sdong001@gmail.com wjdgkals74@gmail.com
+
+Add files
+
+termBackup.sh : 주기적인 백업 실행
+
+logwriter.c logwriter.h : fsarchiver 명령어 수행을 로그로 남김
+
 =====================================================================
 fsarchiver: Filesystem Archiver for Linux [http://www.fsarchiver.org]
 =====================================================================
