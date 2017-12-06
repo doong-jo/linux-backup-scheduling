@@ -1,3 +1,22 @@
+/*
+ * fsarchiver+logwrter_termbackup: Filesystem Archiver add optional backup function
+ *
+ * Copyright (C) 2017 Jipuragi.  All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public
+ * License v2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ *
+ * Homepage: http://github.com/sdong001/oss_hw4/
+ * Email : sdong001@gmail.com wjdgkals74@gmail.com
+
+*/
+
 #include <stdio.h>
 #include <time.h>
 #include <string.h>
@@ -5,15 +24,11 @@
 
 void LogWrite(char ** argvStrs)
 {
-	char fileName[256] = { 0, };
-	char sIntToString[10] = {0, };
-	char buf[2048] = { 0, };
+	char fileName[256] = { \0 };
+	char sIntToString[10] = { \0 };
+	char buf[2048] = { \0 };
 
 	time_t timer = time(NULL);
-
-	struct tm *t;
-
-	t = localtime(&timer);
 
 	int year = t->tm_year + 1900;
 	int month = t->tm_mon + 1;
@@ -22,6 +37,9 @@ void LogWrite(char ** argvStrs)
 	int min = t->tm_min;
 	int sec = t->tm_sec;
 
+	struct tm *t;
+
+	t = localtime(&timer);
 
 	strcat(fileName, "./LogSaveDir/LogWriter_");
 	sprintf(sIntToString, "%d", year);
@@ -34,7 +52,7 @@ void LogWrite(char ** argvStrs)
 	strcat(fileName, sIntToString);
 	strcat(fileName, ".txt");
 
-	FILE* fp = fopen(fileName, "a+");
+	FILE* fp = fopen(fileName, "at");
 
 	strcat(buf, "LogWriter -> ");
 	sprintf(sIntToString, "%d", year);
@@ -69,12 +87,6 @@ void LogWrite(char ** argvStrs)
 	strcat(buf, " : ");
 
 	int i = 0;
-
-	//printf("%s\n", argvStrs[0]);
-	//strcat(buf, argvStrs[0]);
-	//printf("%s\n", argvStrs[1]);
-	//strcat(buf, argvStrs[1]);
-
 
 	while( argvStrs[i] != NULL )
 	{
