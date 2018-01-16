@@ -15,11 +15,20 @@ sdong001@gmail.com, wjdgkals74@gmail.com
 #include <string.h>
 #include "logwriter.h"
 
+
+void dateWriteBuf(int _date, char* _IntToString, char* _buf, char* _catChar)
+{
+	sprintf(_IntToString, "%d", _date);
+	strcat(_buf, _IntToString);
+
+	strcat(_buf, _catChar);
+}
+
 void LogWrite(char ** argvStrs)
 {
-	char fileName[256] = { 0, };
-	char sIntToString[10] = {0, };
-	char buf[2048] = { 0, };
+	char fileName[256] = '\0';
+	char sIntToString[10] = '\0';
+	char buf[2048] = '\0';
 
 	time_t timer = time(NULL);
 
@@ -46,9 +55,19 @@ void LogWrite(char ** argvStrs)
 	strcat(fileName, sIntToString);
 	strcat(fileName, ".txt");
 
-	FILE* fp = fopen(fileName, "a+");
+	FILE* fp = fopen(fileName, "at");
 
 	strcat(buf, "LogWriter -> ");
+	
+	dateWriteBuf(year, sIntToString, buf, "-");
+	dateWriteBuf(month, sIntToString, buf, "-");
+	dateWriteBuf(day, sIntToString, buf, " ");
+	dateWriteBuf(hour, sIntToString, buf, ":");
+	dateWriteBuf(min, sIntToString, buf, ":");
+	dateWriteBuf(sec, sIntToString, buf, " : ");
+	
+	
+	/*
 	sprintf(sIntToString, "%d", year);
 	strcat(buf, sIntToString);
 
@@ -79,6 +98,7 @@ void LogWrite(char ** argvStrs)
 
 
 	strcat(buf, " : ");
+	*/
 
 	int i = 0;
 
