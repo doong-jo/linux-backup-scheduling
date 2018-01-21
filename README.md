@@ -6,3 +6,4 @@
 - fsarchiver 오픈소스를 활용하여 사용자 시스템 혹은 폴더를 백업 스케줄링(예약백업) 기능을 추가하고 로그를 생성할 수 있도록 함
 
 ![main](backupscheduling.png "backupscheduling")
+백업 스케줄링에 관한 가이드를 볼 수 있는 --help 명령어 입력 시 출력 화면
